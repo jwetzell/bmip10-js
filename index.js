@@ -1,4 +1,4 @@
-/** JS Implementation of BMIP10-ref.c */
+/** JS Implementation of BMIP10-ref.c found in https://downloads.blackmagicdesign.com/Developer/Converters/20240613-76d445/Blackmagic_IP10_Codec_v1.1.zip */
 
 function SetupBMIP10(sample_bits, coded_bits) {
   const config = {};
