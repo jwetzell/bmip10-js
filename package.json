@@ -1,0 +1,17 @@
+{
+  "name": "bmip10",
+  "version": "0.1.0",
+  "description": "JS implementation of Blackmagic Designs's IP10 codec",
+  "main": "index.js",
+  "keywords": ["Blackmagic", "IP10", "Codec"],
+  "author": {
+    "name": "Joel Wetzell",
+    "email": "me@jwetzell.com",
+    "url": "https://jwetzell.com"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/jwetzell/bmip10-js.git"
+  },
+  "license": "ISC"
+}
