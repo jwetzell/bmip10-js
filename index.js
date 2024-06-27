@@ -79,7 +79,7 @@ class Encoder {
   }
 
   reset() {
-    this.pickupTable = this.config.default_table;
+    this.table = this.config.default_table;
   }
 }
 
@@ -96,7 +96,7 @@ class Decoder {
   }
 
   reset() {
-    this.pickupTable = this.config.default_table;
+    this.table = this.config.default_table;
   }
 }
 
