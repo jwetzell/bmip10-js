@@ -12,5 +12,12 @@ const encodedData = rawData.map((sample)=>{
 const decodedData = encodedData.map((sample)=>{
     return decoder.decode(sample)
 });
-console.log(encodedData);
-console.log(decodedData);
+
+console.table(rawData.map((sample, index)=>{
+    return {
+        raw: sample,
+        encoded: encodedData[index],
+        decoded: decodedData[index],
+        diff: decodedData[index] - sample,
+    }
+}))
