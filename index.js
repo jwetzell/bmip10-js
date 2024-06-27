@@ -71,22 +71,11 @@ class Encoder {
     this.table = this.config.default_table;
   }
 
-  encode(samples) {
-    const codeout = [];
-    for (let index = 0; index < samples.length; index++) {
-      const sample = samples[index];
-
-      const code_word = EncodeSample(this.config, this.table, sample);
-      const decoded = DecodeSample(this.config, this.table, code_word);
-      this.table = NextTable(this.config, decoded);
-      // console.log(
-      //   `Used table ${table_old} to encode sample ${sample} to codeword ${code_word}. Decoder will decode ${decoded} so ${
-      //     table === table_old ? "sticking with" : "changing to"
-      //   } table ${table}`
-      // );
-      codeout.push(code_word);
-    }
-    return codeout;
+  encode(sample) {
+    const code_word = EncodeSample(this.config, this.table, sample);
+    const decoded = DecodeSample(this.config, this.table, code_word);
+    this.table = NextTable(this.config, decoded);
+    return code_word;
   }
 
   reset() {
@@ -100,24 +89,10 @@ class Decoder {
     this.table = this.config.default_table;
   }
 
-  decode(samples) {
-    const sampout = [];
-
-    for (let index = 0; index < samples.length; index++) {
-      const code_word = samples[index];
-      const decoded = DecodeSample(this.config, this.table, code_word);
-      this.table = NextTable(this.config, decoded);
-      this.table_old = this.table;
-      console.log(
-        `Used table ${
-          this.table_old
-        } to decode codeword ${code_word} to sample ${decoded} so ${
-          this.table === this.table_old ? "sticking with" : "changing to"
-        } table ${this.table}`
-      );
-      sampout.push(decoded);
-    }
-    return sampout;
+  decode(code_word) {
+    const decoded = DecodeSample(this.config, this.table, code_word);
+    this.table = NextTable(this.config, decoded);
+    return decoded;
   }
 
   reset() {
